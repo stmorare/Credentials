@@ -1,2 +1,2 @@
 # Credentials
-*Professional Learning Portfolio Website*
+**Professional Learning Portfolio Website**
