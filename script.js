@@ -1,16 +1,10 @@
 /**
- * Professional Training Credentials & Portfolio of Evidence - ARCHITECTURE SCRIPT
- * Handles dynamic data rendering, theme state, navigation, filtering & modal views.
+ * PORTFOLIOPRO - ARCHITECTURE SCRIPT
  */
 
 'use strict';
 
-/* ==========================================================================
-   1. Data Store (Source of Truth for Credentials)
-   Extracts and structures all certificates provided in user documents.
-   ========================================================================== */
 const certificatesData = [
-    // TERTIARY QUALIFICATIONS
     {
         id: 'cert-mict-seta-2018',
         title: 'National Certificate: Information Technology: Systems Support',
@@ -35,8 +29,6 @@ const certificatesData = [
         tags: ['Academic Transcript', 'MCSA Track', 'Server Systems', 'Windows 10'],
         description: 'Comprehensive academic transcript covering Server Network Operating Systems (96%), Windows 10 (91%), Computer Architecture (90%), and Network Architecture (88%).'
     },
-
-    // MICROSOFT CERTIFICATIONS
     {
         id: 'cert-md102-udemy-2025',
         title: 'MD-102 Endpoint Administrator Associate Course with SIMS',
@@ -49,8 +41,6 @@ const certificatesData = [
         tags: ['MD-102', 'Endpoint Admin', 'Intune', 'Autopilot', 'Microsoft 365'],
         description: 'Mastery of Microsoft Intune, modern endpoint deployment, Azure AD joining, compliance policies, and endpoint security configuration.'
     },
-
-    // AWS CERTIFICATIONS (Structured placeholders)
     {
         id: 'cert-aws-cloud-practitioner',
         title: 'AWS Certified Cloud Practitioner Track',
@@ -63,8 +53,6 @@ const certificatesData = [
         tags: ['AWS', 'Cloud Architecture', 'S3', 'EC2', 'IAM'],
         description: 'Comprehensive knowledge of AWS core services, security management, pricing models, and cloud architectural best practices.'
     },
-
-    // PYTHON CERTIFICATIONS (Structured placeholders)
     {
         id: 'cert-python-automation',
         title: 'Python for IT Administration & System Automation',
@@ -77,8 +65,6 @@ const certificatesData = [
         tags: ['Python 3', 'Automation', 'Scripting', 'OS Module', 'REST APIs'],
         description: 'Development of operational scripts for system diagnostics, file system manipulation, automated backups, and log parsing.'
     },
-
-    // UDEMY / BOOTCAMP CERTIFICATIONS
     {
         id: 'cert-network-sysadmin-udemy',
         title: 'Network and Systems Administrator Technical Training',
@@ -105,9 +91,6 @@ const certificatesData = [
     }
 ];
 
-/* ==========================================================================
-   2. DOM Elements Selection
-   ========================================================================== */
 const DOM = {
     themeToggle: document.getElementById('themeToggle'),
     hamburgerBtn: document.getElementById('hamburgerBtn'),
@@ -130,9 +113,6 @@ const DOM = {
     }
 };
 
-/* ==========================================================================
-   3. Application Initialization & Dynamic Rendering
-   ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     renderAllCertificates(certificatesData);
@@ -146,11 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-/**
- * Render certificate cards dynamically into their respective section grids
- */
 function renderAllCertificates(data) {
-    // Clear existing grids
     Object.values(DOM.grids).forEach(grid => {
         if (grid) grid.innerHTML = '';
     });
@@ -164,9 +140,6 @@ function renderAllCertificates(data) {
     });
 }
 
-/**
- * Construct HTML Card Component for individual certificate
- */
 function createCertificateCard(item) {
     const card = document.createElement('article');
     card.className = 'cert-card';
@@ -200,9 +173,6 @@ function createCertificateCard(item) {
     return card;
 }
 
-/* ==========================================================================
-   4. Theme Management (Dark/Light Mode)
-   ========================================================================== */
 function initTheme() {
     const savedTheme = localStorage.getItem('portfoliopro_theme') || 'dark';
     document.documentElement.setAttribute('data-theme', savedTheme);
@@ -216,22 +186,53 @@ function initTheme() {
     });
 }
 
-/* ==========================================================================
-   5. Sticky Navigation & Scroll Progress Indicator
-   ========================================================================== */
+/* FIXED NAVIGATION & SMART SCROLL */
 function setupNavigation() {
-    // Mobile Hamburger Toggle
-    DOM.hamburgerBtn.addEventListener('click', () => {
-        const isExpanded = DOM.hamburgerBtn.getAttribute('aria-expanded') === 'true';
-        DOM.hamburgerBtn.setAttribute('aria-expanded', !isExpanded);
-        DOM.navMenu.classList.toggle('open');
-    });
+    if (DOM.hamburgerBtn) {
+        DOM.hamburgerBtn.addEventListener('click', () => {
+            const isExpanded = DOM.hamburgerBtn.getAttribute('aria-expanded') === 'true';
+            DOM.hamburgerBtn.setAttribute('aria-expanded', !isExpanded);
+            DOM.navMenu.classList.toggle('open');
+        });
+    }
 
-    // Close Mobile Menu on Nav Link Click
     DOM.navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            DOM.navMenu.classList.remove('open');
-            DOM.hamburgerBtn.setAttribute('aria-expanded', 'false');
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+
+            if (DOM.navMenu) DOM.navMenu.classList.remove('open');
+            if (DOM.hamburgerBtn) DOM.hamburgerBtn.setAttribute('aria-expanded', 'false');
+
+            if (href && href.startsWith('#')) {
+                const targetId = href.substring(1);
+                const targetSection = document.getElementById(targetId);
+
+                if (targetSection) {
+                    e.preventDefault();
+
+                    // If section is currently hidden by filter, reset filter to 'all'
+                    if (targetSection.style.display === 'none') {
+                        const allFilterBtn = document.querySelector('.filter-btn[data-category="all"]');
+                        if (allFilterBtn) {
+                            allFilterBtn.click();
+                        } else {
+                            filterCertificates('', 'all');
+                        }
+                    }
+
+                    // Smooth scroll with offset for sticky navbar
+                    setTimeout(() => {
+                        const navHeight = document.getElementById('navbar')?.offsetHeight || 72;
+                        const elementPosition = targetSection.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - navHeight - 15;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }, 30);
+                }
+            }
         });
     });
 }
@@ -241,13 +242,11 @@ function setupScrollEffects() {
         const scrollTop = window.scrollY;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
         
-        // Update Scroll Progress Bar
         const scrollPercent = (scrollTop / docHeight) * 100;
         if (DOM.scrollProgress) {
             DOM.scrollProgress.style.width = `${scrollPercent}%`;
         }
 
-        // Back-To-Top Button Visibility
         if (DOM.backToTop) {
             if (scrollTop > 400) {
                 DOM.backToTop.classList.add('visible');
@@ -256,10 +255,11 @@ function setupScrollEffects() {
             }
         }
 
-        // Active Link Highlighting based on viewport section
         const sections = document.querySelectorAll('section[id]');
         sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
+            if (section.style.display === 'none') return;
+
+            const sectionTop = section.offsetTop - 120;
             const sectionHeight = section.offsetHeight;
             const sectionId = section.getAttribute('id');
 
@@ -281,11 +281,7 @@ function setupScrollEffects() {
     }
 }
 
-/* ==========================================================================
-   6. Live Search & Category Filtering
-   ========================================================================== */
 function setupFiltering() {
-    // Search Input Listener
     if (DOM.certSearch) {
         DOM.certSearch.addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase().trim();
@@ -293,7 +289,6 @@ function setupFiltering() {
         });
     }
 
-    // Category Pill Listener
     if (DOM.filterPills) {
         DOM.filterPills.addEventListener('click', (e) => {
             if (e.target.classList.contains('filter-btn')) {
@@ -347,7 +342,6 @@ function filterCertificates(searchQuery, category) {
             }
         });
 
-        // Hide whole section if no cards match
         if (visibleCardsInSection === 0) {
             section.style.display = 'none';
         } else {
@@ -356,9 +350,6 @@ function filterCertificates(searchQuery, category) {
     });
 }
 
-/* ==========================================================================
-   7. Interactive Lightbox Modal Component
-   ========================================================================== */
 function setupModalEvents() {
     if (DOM.modalCloseBtn) {
         DOM.modalCloseBtn.addEventListener('click', closeCertModal);

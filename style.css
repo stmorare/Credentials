@@ -1,19 +1,12 @@
 /* ==========================================================================
-   Professional Training Credentials & Portfolio of Evidence - SYSTEM ARCHITECTURE STYLESHEET
-   Design System: Corporate Enterprise (Microsoft / IBM / GitHub Inspired)
-   Author: Senior Frontend & Accessibility Specialist
+   PORTFOLIOPRO - SYSTEM ARCHITECTURE STYLESHEET
    ========================================================================== */
 
-/* --------------------------------------------------------------------------
-   1. CSS Custom Properties (Design Tokens & Color Palette)
-   -------------------------------------------------------------------------- */
 :root {
-    /* Brand Accent Colors */
     --primary-blue: #2563EB;
     --primary-hover: #1D4ED8;
     --primary-glow: rgba(37, 99, 235, 0.25);
     
-    /* Dark Theme Palette (Default) */
     --bg-base: #0B0F17;
     --bg-surface: #111827;
     --bg-card: #1F2937;
@@ -31,7 +24,6 @@
     --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
     --card-glow-shadow: 0 0 25px rgba(37, 99, 235, 0.15);
     
-    /* Layout Constants */
     --max-width: 1280px;
     --nav-height: 72px;
     --radius-sm: 6px;
@@ -41,7 +33,6 @@
     --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Light Theme Override */
 [data-theme="light"] {
     --bg-base: #F8FAFC;
     --bg-surface: #FFFFFF;
@@ -61,9 +52,6 @@
     --card-glow-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.12);
 }
 
-/* --------------------------------------------------------------------------
-   2. Reset & Core Base Styles
-   -------------------------------------------------------------------------- */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -85,7 +73,6 @@ body {
     min-height: 100vh;
 }
 
-/* Typography Standards */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     line-height: 1.25;
@@ -111,13 +98,11 @@ button, input {
     font-size: inherit;
 }
 
-/* Accessibility Focus Ring */
 :focus-visible {
     outline: 2px solid var(--border-focus);
     outline-offset: 4px;
 }
 
-/* Scroll Progress Bar */
 .scroll-progress {
     position: fixed;
     top: 0;
@@ -129,9 +114,6 @@ button, input {
     transition: width 0.1s ease-out;
 }
 
-/* --------------------------------------------------------------------------
-   3. Sticky Navbar & Navigation Controls
-   -------------------------------------------------------------------------- */
 .navbar {
     position: sticky;
     top: 0;
@@ -201,7 +183,6 @@ button, input {
     gap: 0.75rem;
 }
 
-/* Theme Toggle Button */
 .theme-toggle-btn {
     background: transparent;
     border: 1px solid var(--border-color);
@@ -226,7 +207,6 @@ button, input {
 [data-theme="light"] .sun-icon { display: none; }
 [data-theme="light"] .moon-icon { display: block; }
 
-/* Mobile Hamburger Menu */
 .hamburger-btn {
     display: none;
     background: transparent;
@@ -245,9 +225,6 @@ button, input {
     transition: transform var(--transition-fast), opacity var(--transition-fast);
 }
 
-/* --------------------------------------------------------------------------
-   4. Hero Section & Dashboard Metrics
-   -------------------------------------------------------------------------- */
 .hero-section {
     position: relative;
     padding: 6rem 1.5rem 5rem;
@@ -293,6 +270,28 @@ button, input {
     box-shadow: 0 0 10px var(--primary-blue);
 }
 
+/* NEW INLINE BADGES FOR SUBTITLE */
+.inline-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.15rem 0.65rem;
+    border-radius: 9999px;
+    background-color: rgba(37, 99, 235, 0.12);
+    border: 1px solid rgba(37, 99, 235, 0.3);
+    color: var(--primary-blue);
+    font-size: 0.9em;
+    font-weight: 600;
+    white-space: nowrap;
+    vertical-align: middle;
+    margin: 0.15rem 0.2rem;
+    transition: all var(--transition-fast);
+}
+
+.inline-badge:hover {
+    background-color: rgba(37, 99, 235, 0.25);
+    border-color: var(--primary-blue);
+}
+
 .hero-title {
     font-size: clamp(2.2rem, 5vw, 3.8rem);
     letter-spacing: -0.03em;
@@ -303,14 +302,13 @@ button, input {
 .highlight-text {
     background: linear-gradient(135deg, #60A5FA 0%, var(--primary-blue) 100%);
     -webkit-background-clip: text;
-    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .hero-subtitle {
     font-size: clamp(1.05rem, 2vw, 1.25rem);
-    max-width: 760px;
-    line-height: 1.6;
+    max-width: 800px;
+    line-height: 1.8;
     margin-bottom: 2.5rem;
     color: var(--text-secondary);
 }
@@ -323,7 +321,6 @@ button, input {
     margin-bottom: 4rem;
 }
 
-/* Button UI Components */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -366,7 +363,6 @@ button, input {
     width: 100%;
 }
 
-/* Stats Metrics Grid */
 .hero-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -401,9 +397,6 @@ button, input {
     font-weight: 500;
 }
 
-/* --------------------------------------------------------------------------
-   5. Search Bar & Category Filters
-   -------------------------------------------------------------------------- */
 .filter-section {
     padding: 2rem 1.5rem;
     background-color: var(--bg-surface);
@@ -484,9 +477,6 @@ button, input {
     color: #FFFFFF;
 }
 
-/* --------------------------------------------------------------------------
-   6. Certification Sections & Premium Cards Grid
-   -------------------------------------------------------------------------- */
 .cert-section {
     padding: 5rem 1.5rem;
     border-bottom: 1px solid var(--border-color);
@@ -528,7 +518,6 @@ button, input {
     gap: 1.75rem;
 }
 
-/* Dynamic Certificate Card */
 .cert-card {
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
@@ -602,7 +591,6 @@ button, input {
     margin-bottom: 0.75rem;
     display: -webkit-box;
     -webkit-line-clamp: 2;
-    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -649,9 +637,6 @@ button, input {
     border-radius: var(--radius-sm);
 }
 
-/* --------------------------------------------------------------------------
-   7. Testimonials & Contact Sections
-   -------------------------------------------------------------------------- */
 .testimonials-section {
     padding: 5rem 1.5rem;
     background-color: var(--bg-surface);
@@ -729,7 +714,6 @@ button, input {
     color: var(--text-muted);
 }
 
-/* Contact Section Card */
 .contact-section {
     padding: 5rem 1.5rem;
 }
@@ -827,9 +811,6 @@ button, input {
     margin-bottom: 1.75rem;
 }
 
-/* --------------------------------------------------------------------------
-   8. Footer & Utility Controls
-   -------------------------------------------------------------------------- */
 .footer {
     background-color: var(--bg-surface);
     border-top: 1px solid var(--border-color);
@@ -916,9 +897,6 @@ button, input {
     background-color: var(--primary-hover);
 }
 
-/* --------------------------------------------------------------------------
-   9. Modal Lightbox Component
-   -------------------------------------------------------------------------- */
 .modal-overlay {
     position: fixed;
     inset: 0;
@@ -1002,9 +980,6 @@ button, input {
     margin-bottom: 1.25rem;
 }
 
-/* --------------------------------------------------------------------------
-   10. Media Queries & Responsive Adaptations
-   -------------------------------------------------------------------------- */
 @media (max-width: 992px) {
     .contact-card {
         grid-template-columns: 1fr;
