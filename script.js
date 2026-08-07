@@ -13,7 +13,8 @@ const certificatesData = [
         date: '16 May 2018',
         credentialId: 'NLRD No. 48573 | SAQA ID 48573',
         level: 'NQF Level 5',
-        thumbnail: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600&auto=format&fit=crop',
+        thumbnail: 'dhet-logo.png',
+        isLogo: true,
         tags: ['NQF Level 5', 'Systems Support', 'MICT SETA', 'SAQA Accredited'],
         description: 'National qualification certified under section 9 (1)(f) of ETQA Regulations. Demonstrates core competencies in IT systems architecture, field operations, and technical support.'
     },
@@ -25,7 +26,8 @@ const certificatesData = [
         date: '05 March 2018',
         credentialId: 'CTU-AP-2018-87',
         level: 'Student Average: 87.00%',
-        thumbnail: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=600&auto=format&fit=crop',
+        thumbnail: 'ctu-logo.png',
+        isLogo: true,
         tags: ['Academic Transcript', 'MCSA Track', 'Server Systems', 'Windows 10'],
         description: 'Comprehensive academic transcript covering Server Network Operating Systems (96%), Windows 10 (91%), Computer Architecture (90%), and Network Architecture (88%).'
     },
@@ -147,10 +149,11 @@ function createCertificateCard(item) {
     card.setAttribute('data-title', item.title.toLowerCase());
 
     const tagsHTML = item.tags.map(tag => `<span class="tag-pill">${tag}</span>`).join('');
+    const logoClass = item.isLogo ? 'logo-img' : '';
 
     card.innerHTML = `
-        <div class="card-thumbnail-wrapper">
-            <img src="${item.thumbnail}" alt="${item.title} Preview" class="card-thumbnail" loading="lazy">
+        <div class="card-thumbnail-wrapper ${item.isLogo ? 'logo-bg' : ''}">
+            <img src="${item.thumbnail}" alt="${item.title} Preview" class="card-thumbnail ${logoClass}" loading="lazy">
             <span class="card-badge">${item.level || 'Certified'}</span>
         </div>
         <div class="card-body">
@@ -186,7 +189,6 @@ function initTheme() {
     });
 }
 
-/* FIXED NAVIGATION & SMART SCROLL */
 function setupNavigation() {
     if (DOM.hamburgerBtn) {
         DOM.hamburgerBtn.addEventListener('click', () => {
@@ -210,7 +212,6 @@ function setupNavigation() {
                 if (targetSection) {
                     e.preventDefault();
 
-                    // If section is currently hidden by filter, reset filter to 'all'
                     if (targetSection.style.display === 'none') {
                         const allFilterBtn = document.querySelector('.filter-btn[data-category="all"]');
                         if (allFilterBtn) {
@@ -220,7 +221,6 @@ function setupNavigation() {
                         }
                     }
 
-                    // Smooth scroll with offset for sticky navbar
                     setTimeout(() => {
                         const navHeight = document.getElementById('navbar')?.offsetHeight || 72;
                         const elementPosition = targetSection.getBoundingClientRect().top;
@@ -377,7 +377,7 @@ function openCertModal(id) {
     const tagsHTML = item.tags.map(tag => `<span class="tag-pill">${tag}</span>`).join('');
 
     DOM.modalBody.innerHTML = `
-        <img src="${item.thumbnail}" alt="${item.title} Preview" class="modal-preview-img">
+        <img src="${item.thumbnail}" alt="${item.title} Preview" class="modal-preview-img ${item.isLogo ? 'logo-img' : ''}">
         <div class="modal-details">
             <span class="card-issuer">${item.issuer}</span>
             <h3 id="modalTitle">${item.title}</h3>

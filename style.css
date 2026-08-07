@@ -270,7 +270,6 @@ button, input {
     box-shadow: 0 0 10px var(--primary-blue);
 }
 
-/* HERO SUBTITLE BADGES WRAPPER */
 .hero-subtitle-badges {
     display: flex;
     align-items: center;
@@ -527,11 +526,21 @@ button, input {
     border-bottom: 1px solid var(--border-color);
 }
 
+.card-thumbnail-wrapper.logo-bg {
+    background-color: #FFFFFF;
+}
+
 .card-thumbnail {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform var(--transition-smooth);
+}
+
+.card-thumbnail.logo-img {
+    object-fit: contain;
+    padding: 1.25rem;
+    background-color: #FFFFFF;
 }
 
 .cert-card:hover .card-thumbnail {
@@ -948,6 +957,11 @@ button, input {
     border-radius: var(--radius-md);
     border: 1px solid var(--border-color);
     margin-bottom: 1.5rem;
+}
+
+.modal-preview-img.logo-img {
+    background-color: #FFFFFF;
+    padding: 1.5rem;
 }
 
 .modal-details h3 {
