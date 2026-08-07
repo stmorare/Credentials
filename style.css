@@ -270,26 +270,17 @@ button, input {
     box-shadow: 0 0 10px var(--primary-blue);
 }
 
-/* NEW INLINE BADGES FOR SUBTITLE */
-.inline-badge {
-    display: inline-flex;
+/* HERO SUBTITLE BADGES WRAPPER */
+.hero-subtitle-badges {
+    display: flex;
     align-items: center;
-    padding: 0.15rem 0.65rem;
-    border-radius: 9999px;
-    background-color: rgba(37, 99, 235, 0.12);
-    border: 1px solid rgba(37, 99, 235, 0.3);
-    color: var(--primary-blue);
-    font-size: 0.9em;
-    font-weight: 600;
-    white-space: nowrap;
-    vertical-align: middle;
-    margin: 0.15rem 0.2rem;
-    transition: all var(--transition-fast);
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
 }
 
-.inline-badge:hover {
-    background-color: rgba(37, 99, 235, 0.25);
-    border-color: var(--primary-blue);
+.hero-subtitle-badges .hero-badge {
+    margin-bottom: 0;
 }
 
 .hero-title {
@@ -303,14 +294,6 @@ button, input {
     background: linear-gradient(135deg, #60A5FA 0%, var(--primary-blue) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.hero-subtitle {
-    font-size: clamp(1.05rem, 2vw, 1.25rem);
-    max-width: 800px;
-    line-height: 1.8;
-    margin-bottom: 2.5rem;
-    color: var(--text-secondary);
 }
 
 .hero-actions {
