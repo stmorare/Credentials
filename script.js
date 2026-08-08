@@ -7,7 +7,7 @@
 const certificatesData = [
     {
         id: 'cert-mict-seta-2018',
-        title: 'National Certificate: Information Technology: Systems Support',
+        title: 'National Certificate: Information Technology (Systems Support)',
         issuer: 'Department of Higher Education',
         category: 'tertiary',
         date: '16 May 2018',
