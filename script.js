@@ -41,13 +41,13 @@ const certificatesData = [
         title: 'MD-102 Endpoint Administrator Associate Course with SIMS',
         issuer: 'Microsoft',
         category: 'microsoft',
-        date: '05 October 2025',
+        date: '15 November 2021',
         credentialId: 'UC-f121cfeb-df67-43c7-9bb3-ef0f07fd6b3e',
         level: '11.5 Total Hours',
         thumbnail: 'https://rabbitlogo.com/wp-content/uploads/2026/01/microsoft-1.jpg',
         certImage: 'certificates/Azure Certification_page-0001.jpg',
-        tags: ['MD-102', 'Endpoint Admin', 'Intune', 'Autopilot', 'Microsoft 365'],
-        description: 'Mastery of Microsoft Intune, modern endpoint deployment, Azure AD joining, compliance policies, and endpoint security configuration.'
+        tags: ['AZ-900', 'Azure Cloud', 'Cloud Concepts', 'Azure Architecture & Services', 'Azure Management & Governance', 'Microsoft Certified' ],
+        description: 'Demonstrate foundational knowledge of cloud concepts, core Azure services, plus Azure management and governance features and tools.'
     },
     {
         id: 'cert-aws-cloud-practitioner',
