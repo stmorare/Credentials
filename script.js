@@ -43,7 +43,7 @@ const certificatesData = [
         category: 'microsoft',
         date: '15 November 2021',
         credentialId: 'UC-f121cfeb-df67-43c7-9bb3-ef0f07fd6b3e',
-        level: '11.5 Total Hours',
+        level: 'Fundamentals',
         thumbnail: 'https://rabbitlogo.com/wp-content/uploads/2026/01/microsoft-1.jpg',
         certImage: 'certificates/Azure Certification_page-0001.jpg',
         tags: ['AZ-900', 'Azure Cloud', 'Cloud Concepts', 'Azure Architecture & Services', 'Azure Management & Governance', 'Microsoft Certified' ],
