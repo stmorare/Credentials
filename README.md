@@ -1,4 +1,4 @@
-*Professional Training Credentials & Portfolio of Evidence*
+# Professional Training Credentials & Portfolio of Evidence #
 
  Designed as a platform to showcase Simphiwe Tebogo Morare's learning track record.
 
