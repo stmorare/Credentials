@@ -39,13 +39,13 @@ const certificatesData = [
     {
         id: 'cert-md102-udemy-2025',
         title: 'MD-102 Endpoint Administrator Associate Course with SIMS',
-        issuer: 'Microsoft Certified Instructor / Udemy',
+        issuer: 'Microsoft',
         category: 'microsoft',
         date: '05 October 2025',
         credentialId: 'UC-f121cfeb-df67-43c7-9bb3-ef0f07fd6b3e',
         level: '11.5 Total Hours',
-        thumbnail: 'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&w=600&auto=format&fit=crop',
-        certImage: 'certificates/MD-102-Endpoint-Administrator-Associate.jpg',
+        thumbnail: 'https://rabbitlogo.com/wp-content/uploads/2026/01/microsoft-1.jpg',
+        certImage: 'certificates/Azure Certification_page-0001.jpg',
         tags: ['MD-102', 'Endpoint Admin', 'Intune', 'Autopilot', 'Microsoft 365'],
         description: 'Mastery of Microsoft Intune, modern endpoint deployment, Azure AD joining, compliance policies, and endpoint security configuration.'
     },
