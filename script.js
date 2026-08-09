@@ -7,8 +7,8 @@
 const certificatesData = [
     {
         id: 'cert-mict-seta-2018',
-        title: 'National Certificate: Information Technology: Systems Support',
-        issuer: 'Department of Higher Education & MICT SETA',
+        title: 'National Certificate: Information Technology (Systems Support)',
+        issuer: 'Department of Higher Education and Training (DHET)',
         category: 'tertiary',
         date: '16 May 2018',
         credentialId: 'NLRD No. 48573 | SAQA ID 48573',
@@ -21,8 +21,8 @@ const certificatesData = [
     },
     {
         id: 'cert-ctu-transcript-2018',
-        title: 'Academic Transcript - IT System Support MCSA',
-        issuer: 'CTU Training Solutions (Auckland Park)',
+        title: 'Academic Transcript - IT System Support (MCSA)',
+        issuer: 'CTU Training Solutions',
         category: 'tertiary',
         date: '05 March 2018',
         credentialId: 'CTU-AP-2018-87',
@@ -30,7 +30,7 @@ const certificatesData = [
         thumbnail: 'ctu-logo.png',
         certImage: 'certificates/Academic-Transcript.jpg',
         isLogo: true,
-        tags: ['Academic Transcript', 'MCSA Track', 'Server Systems', 'Windows 10'],
+        tags: ['Academic Transcript', 'Microsoft Windows Server 2012 R2', 'Microsoft Windows 10', 'Communication', 'MCSA'], 
         description: 'Comprehensive academic transcript covering Server Network Operating Systems (96%), Windows 10 (91%), Computer Architecture (90%), and Network Architecture (88%).'
     },
     {
