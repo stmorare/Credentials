@@ -292,6 +292,7 @@ button, input {
 .highlight-text {
     background: linear-gradient(135deg, #60A5FA 0%, var(--primary-blue) 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -583,6 +584,7 @@ button, input {
     margin-bottom: 0.75rem;
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
