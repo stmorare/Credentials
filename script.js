@@ -14,7 +14,7 @@ const certificatesData = [
         credentialId: 'NLRD No. 48573 | SAQA ID 48573',
         level: 'NQF Level 5',
         thumbnail: 'dhet-logo.jfif',
-        certImage: 'certificates/national-certificate.jpg', // Full Certificate Image
+        certImage: 'certificates/IT-National-Certificate.jpeg',
         isLogo: true,
         tags: ['NQF Level 5', 'Systems Support', 'MICT SETA', 'SAQA Accredited'],
         description: 'National qualification certified under section 9 (1)(f) of ETQA Regulations. Demonstrates core competencies in IT systems architecture, field operations, and technical support.'
@@ -28,7 +28,7 @@ const certificatesData = [
         credentialId: 'CTU-AP-2018-87',
         level: 'Student Average: 87.00%',
         thumbnail: 'ctu-logo.png',
-        certImage: 'certificates/academic-transcript.jpg', // Full Transcript Image
+        certImage: 'certificates/Academic-Transcript.jpg',
         isLogo: true,
         tags: ['Academic Transcript', 'MCSA Track', 'Server Systems', 'Windows 10'],
         description: 'Comprehensive academic transcript covering Server Network Operating Systems (96%), Windows 10 (91%), Computer Architecture (90%), and Network Architecture (88%).'
@@ -42,7 +42,7 @@ const certificatesData = [
         credentialId: 'UC-f121cfeb-df67-43c7-9bb3-ef0f07fd6b3e',
         level: '11.5 Total Hours',
         thumbnail: 'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&w=600&auto=format&fit=crop',
-        certImage: 'certificates/udemy-md102.jpg',
+        certImage: 'certificates/MD-102-Endpoint-Administrator-Associate.jpg',
         tags: ['MD-102', 'Endpoint Admin', 'Intune', 'Autopilot', 'Microsoft 365'],
         description: 'Mastery of Microsoft Intune, modern endpoint deployment, Azure AD joining, compliance policies, and endpoint security configuration.'
     },
@@ -81,7 +81,7 @@ const certificatesData = [
         credentialId: 'UC-2713f347-b8c2-41ed-8f9b-1191a6476811',
         level: '49.5 Total Hours',
         thumbnail: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=600&auto=format&fit=crop',
-        certImage: 'certificates/udemy-sysadmin.jpg',
+        certImage: 'certificates/Network-and-Systems-Administrator-Technical-Training.jpg',
         tags: ['SysAdmin', 'Active Directory', 'Networking', 'Group Policy', 'DHCP/DNS'],
         description: 'Intensive 49.5-hour hands-on technical training covering enterprise Active Directory configuration, Domain Controllers, DNS, and ticketing systems.'
     },
@@ -94,7 +94,7 @@ const certificatesData = [
         credentialId: 'UC-e2a1bae4-32f1-4346-879e-7b5e2c8c3b8f',
         level: '39.5 Total Hours',
         thumbnail: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=600&auto=format&fit=crop',
-        certImage: 'certificates/udemy-bootcamp.jpg',
+        certImage: 'certificates/IT-Support-Technical-Skills-Bootcamp.jpg',
         tags: ['IT Support', 'Hardware Troubleshooting', 'Ticketing', 'Remote Desktop'],
         description: '39.5 hours of practical lab exercises covering tier-1 and tier-2 IT support, hardware diagnostics, and enterprise software deployment.'
     }
@@ -157,14 +157,16 @@ window.handleImageFallback = function(img) {
         img.dataset.tried = '1';
         const currentSrc = img.src;
         if (currentSrc.includes('certificates/')) {
-            // Try looking in root directory if subfolder path fails
+            // Try looking in root directory if certificates/ subfolder path fails
             img.src = currentSrc.replace('certificates/', '');
         } else if (currentSrc.endsWith('.png')) {
             img.src = currentSrc.replace('.png', '.jfif');
         } else if (currentSrc.endsWith('.jfif')) {
             img.src = currentSrc.replace('.jfif', '.png');
         } else if (currentSrc.endsWith('.jpg')) {
-            img.src = currentSrc.replace('.jpg', '.png');
+            img.src = currentSrc.replace('.jpg', '.jpeg');
+        } else if (currentSrc.endsWith('.jpeg')) {
+            img.src = currentSrc.replace('.jpeg', '.jpg');
         }
     }
 };
@@ -197,7 +199,6 @@ function createCertificateCard(item) {
                 ${tagsHTML}
             </div>
             <div class="card-footer">
-                <!-- BUTTON TEXT UPDATED TO "View Credential" -->
                 <button class="btn btn-secondary btn-card-action view-details-btn" type="button" onclick="openCertModal('${item.id}')">
                     View Credential
                 </button>
@@ -402,9 +403,6 @@ function setupModalEvents() {
     });
 }
 
-/**
- * OPENS CERTIFICATE MODAL LIGHTBOX SHOWING FULL DOCUMENT IMAGE
- */
 function openCertModal(id) {
     const item = certificatesData.find(c => c.id === id);
     if (!item || !DOM.modalBody) return;
