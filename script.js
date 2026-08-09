@@ -7,6 +7,7 @@
 const certificatesData = [
     {
         id: 'cert-mict-seta-2018',
+        // YOUR EDITS INCLUDED BELOW:
         title: 'National Certificate: Information Technology (Systems Support)',
         issuer: 'Department of Higher Education and Training (DHET)',
         category: 'tertiary',
@@ -21,6 +22,7 @@ const certificatesData = [
     },
     {
         id: 'cert-ctu-transcript-2018',
+        // YOUR EDITS INCLUDED BELOW:
         title: 'Academic Transcript - IT System Support (MCSA)',
         issuer: 'CTU Training Solutions',
         category: 'tertiary',
@@ -30,7 +32,8 @@ const certificatesData = [
         thumbnail: 'ctu-logo.png',
         certImage: 'certificates/Academic-Transcript.jpg',
         isLogo: true,
-        tags: ['Academic Transcript', 'Microsoft Windows Server 2012 R2', 'Microsoft Windows 10', 'Communication', 'MCSA'], 
+        // YOUR UPDATED TAGS:
+        tags: ['Academic Transcript', 'Microsoft Windows Server 2012 R2', 'Microsoft Windows 10', 'Computer Architecture', 'Network Architecture'],
         description: 'Comprehensive academic transcript covering Server Network Operating Systems (96%), Windows 10 (91%), Computer Architecture (90%), and Network Architecture (88%).'
     },
     {
@@ -157,7 +160,6 @@ window.handleImageFallback = function(img) {
         img.dataset.tried = '1';
         const currentSrc = img.src;
         if (currentSrc.includes('certificates/')) {
-            // Try looking in root directory if certificates/ subfolder path fails
             img.src = currentSrc.replace('certificates/', '');
         } else if (currentSrc.endsWith('.png')) {
             img.src = currentSrc.replace('.png', '.jfif');
@@ -199,7 +201,8 @@ function createCertificateCard(item) {
                 ${tagsHTML}
             </div>
             <div class="card-footer">
-                <button class="btn btn-secondary btn-card-action view-details-btn" type="button" onclick="openCertModal('${item.id}')">
+                <!-- UPDATED BUTTON TO match primary blue style -->
+                <button class="btn btn-primary btn-card-action view-details-btn" type="button" onclick="openCertModal('${item.id}')">
                     View Credential
                 </button>
             </div>
