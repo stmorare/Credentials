@@ -94,7 +94,7 @@ const certificatesData = [
     {
         id: 'cert-udemy-it-support-bootcamp',
         title: 'IT Support Technical Skills Bootcamp',
-        issuer: 'Jobskillshare Community / Udemy',
+        issuer: 'Jobskillshare Community',
         category: 'udemy',
         date: '30 October 2024',
         credentialId: 'UC-e2a1bae4-32f1-4346-879e-7b5e2c8c3b8f',
@@ -104,20 +104,6 @@ const certificatesData = [
         isLogo: true,
         tags: ['IT Support', 'Tier 1/2 Diagnostics', 'Hardware Troubleshooting', 'Ticketing Systems', 'Remote Desktop'],
         description: 'Intensive 39.5-hour bootcamp covering tier-1 and tier-2 IT support troubleshooting, active directory user management, remote desktop tools, and enterprise ticketing systems.'
-    },
-    {
-        id: 'cert-udemy-md102',
-        title: 'MD-102 Endpoint Administrator Associate course with SIMS!',
-        issuer: 'John Christopher / Udemy',
-        category: 'udemy',
-        date: '05 October 2025',
-        credentialId: 'UC-f121cfeb-df67-43c7-9bb3-ef0f07fd6b3e',
-        level: '11.5 Total Hours',
-        thumbnail: 'https://www.vectorlogo.zone/logos/udemy/udemy-ar21.svg',
-        certImage: 'certificates/MD-102-Endpoint-Administrator-Associate.jpg',
-        isLogo: true,
-        tags: ['MD-102', 'Endpoint Admin', 'Microsoft Intune', 'Autopilot Deployment', 'SIMS Labs'],
-        description: 'Practical 11.5-hour hands-on course focusing on Microsoft Intune endpoint management, device compliance policies, Windows Autopilot deployment, and SIMS lab simulations.'
     },
     {
         id: 'cert-udemy-sysadmin',
@@ -132,7 +118,21 @@ const certificatesData = [
         isLogo: true,
         tags: ['SysAdmin', 'Active Directory', 'Networking Infrastructure', 'Group Policy (GPO)', 'DHCP/DNS'],
         description: 'Comprehensive 49.5-hour system administration bootcamp covering Active Directory Domain Controllers, Group Policy Object management, DNS/DHCP network services, and server infrastructure support.'
-    }
+    },
+    {
+        id: 'cert-udemy-md102',
+        title: 'MD-102 Endpoint Administrator Associate course with SIMS!',
+        issuer: 'John Christopher',
+        category: 'udemy',
+        date: '05 October 2025',
+        credentialId: 'UC-f121cfeb-df67-43c7-9bb3-ef0f07fd6b3e',
+        level: '11.5 Total Hours',
+        thumbnail: 'https://www.vectorlogo.zone/logos/udemy/udemy-ar21.svg',
+        certImage: 'certificates/MD-102-Endpoint-Administrator-Associate.jpg',
+        isLogo: true,
+        tags: ['MD-102', 'Endpoint Admin', 'Microsoft Intune', 'Autopilot Deployment', 'SIMS Labs'],
+        description: 'Practical 11.5-hour hands-on course focusing on Microsoft Intune endpoint management, device compliance policies, Windows Autopilot deployment, and SIMS lab simulations.'
+    },
 ];
 
 const DOM = {
