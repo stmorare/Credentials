@@ -38,7 +38,7 @@ const certificatesData = [
     },
 
     /* ==========================================================================
-       2. MICROSOFT CERTIFICATIONS (White space removed)
+       2. MICROSOFT CERTIFICATIONS
        ========================================================================== */
     {
         id: 'cert-azure-fundamentals-2021',
@@ -256,6 +256,9 @@ function initTheme() {
     });
 }
 
+/**
+ * FIXED TOP NAVIGATION: Synchronizes Filter Pills & Smooth Scrolls
+ */
 function setupNavigation() {
     if (DOM.hamburgerBtn) {
         DOM.hamburgerBtn.addEventListener('click', () => {
@@ -279,19 +282,28 @@ function setupNavigation() {
                 if (targetSection) {
                     e.preventDefault();
 
-                    if (targetSection.style.display === 'none') {
-                        const allFilterBtn = document.querySelector('.filter-btn[data-category="all"]');
-                        if (allFilterBtn) {
-                            allFilterBtn.click();
-                        } else {
-                            filterCertificates('', 'all');
-                        }
+                    // 1. Sync corresponding filter pill button
+                    const matchingPill = document.querySelector(`.filter-btn[data-category="${targetId}"]`);
+                    if (matchingPill) {
+                        document.querySelectorAll('.filter-btn').forEach(btn => {
+                            btn.classList.remove('active');
+                            btn.setAttribute('aria-selected', 'false');
+                        });
+                        matchingPill.classList.add('active');
+                        matchingPill.setAttribute('aria-selected', 'true');
                     }
 
+                    // 2. Unhide target section if hidden by filter
+                    if (targetSection.style.display === 'none') {
+                        filterCertificates('', targetId);
+                    }
+
+                    // 3. Smooth scroll with sticky nav & filter bar offset compensation
                     setTimeout(() => {
                         const navHeight = document.getElementById('navbar')?.offsetHeight || 72;
+                        const filterHeight = document.querySelector('.filter-section')?.offsetHeight || 80;
                         const elementPosition = targetSection.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - navHeight - 15;
+                        const offsetPosition = elementPosition + window.pageYOffset - navHeight - filterHeight + 15;
 
                         window.scrollTo({
                             top: offsetPosition,
@@ -326,7 +338,7 @@ function setupScrollEffects() {
         sections.forEach(section => {
             if (section.style.display === 'none') return;
 
-            const sectionTop = section.offsetTop - 120;
+            const sectionTop = section.offsetTop - 150;
             const sectionHeight = section.offsetHeight;
             const sectionId = section.getAttribute('id');
 
@@ -348,6 +360,9 @@ function setupScrollEffects() {
     }
 }
 
+/**
+ * FIXED SUB-MENU FILTER PILLS: Syncs Top Navbar & Smooth Scrolls
+ */
 function setupFiltering() {
     if (DOM.certSearch) {
         DOM.certSearch.addEventListener('input', (e) => {
@@ -359,18 +374,47 @@ function setupFiltering() {
     if (DOM.filterPills) {
         DOM.filterPills.addEventListener('click', (e) => {
             if (e.target.classList.contains('filter-btn')) {
+                const category = e.target.getAttribute('data-category');
+                const searchQuery = DOM.certSearch ? DOM.certSearch.value.toLowerCase().trim() : '';
+
+                // 1. Activate clicked filter pill
                 document.querySelectorAll('.filter-btn').forEach(btn => {
                     btn.classList.remove('active');
                     btn.setAttribute('aria-selected', 'false');
                 });
-
                 e.target.classList.add('active');
                 e.target.setAttribute('aria-selected', 'true');
 
-                const category = e.target.getAttribute('data-category');
-                const searchQuery = DOM.certSearch ? DOM.certSearch.value.toLowerCase().trim() : '';
-                
+                // 2. Filter sections/cards
                 filterCertificates(searchQuery, category);
+
+                // 3. Sync Top Header Navigation Active Link
+                DOM.navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${category}`) {
+                        link.classList.add('active');
+                    } else if (category === 'all' && link.getAttribute('href') === '#home') {
+                        link.classList.add('active');
+                    }
+                });
+
+                // 4. Smooth Scroll to Target Section (or Credentials Wrapper for 'all')
+                const targetId = category === 'all' ? 'credentialsWrapper' : category;
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    setTimeout(() => {
+                        const navHeight = document.getElementById('navbar')?.offsetHeight || 72;
+                        const filterHeight = document.querySelector('.filter-section')?.offsetHeight || 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - navHeight - filterHeight + 15;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }, 30);
+                }
             }
         });
     }
