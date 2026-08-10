@@ -38,7 +38,7 @@ const certificatesData = [
     },
 
     /* ==========================================================================
-       2. MICROSOFT CERTIFICATIONS (Official Microsoft Certification Only)
+       2. MICROSOFT CERTIFICATIONS (White space removed)
        ========================================================================== */
     {
         id: 'cert-azure-fundamentals-2021',
@@ -50,13 +50,12 @@ const certificatesData = [
         level: 'Fundamentals',
         thumbnail: 'https://rabbitlogo.com/wp-content/uploads/2026/01/microsoft-1.jpg',
         certImage: 'certificates/Azure Certification_page-0001.jpg',
-        isLogo: true,
         tags: ['AZ-900', 'Azure Cloud', 'Cloud Concepts', 'Azure Architecture & Services', 'Azure Management & Governance', 'Microsoft Certified'],
         description: 'Demonstrates foundational knowledge of cloud concepts, core Azure services, plus Azure management and governance features and tools certified directly by Microsoft.'
     },
 
     /* ==========================================================================
-       3. AWS CERTIFICATIONS (Placeholder track)
+       3. AWS CERTIFICATIONS
        ========================================================================== */
     {
         id: 'cert-aws-cloud-practitioner',
@@ -73,7 +72,7 @@ const certificatesData = [
     },
 
     /* ==========================================================================
-       4. PYTHON DEVELOPMENT (Placeholder track)
+       4. PYTHON DEVELOPMENT
        ========================================================================== */
     {
         id: 'cert-python-automation',
