@@ -107,7 +107,7 @@ const certificatesData = [
     {
         id: 'cert-udemy-sysadmin',
         title: 'Network and Systems Administrator Technical Training',
-        issuer: 'Jobskillshare Community / Udemy',
+        issuer: 'Jobskillshare Community',
         category: 'udemy',
         date: '23 September 2025',
         credentialId: 'UC-2713f347-b8c2-41ed-8f9b-1191a6476811',
