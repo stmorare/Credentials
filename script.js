@@ -5,9 +5,11 @@
 'use strict';
 
 const certificatesData = [
+    /* ==========================================================================
+       1. TERTIARY EDUCATION
+       ========================================================================== */
     {
         id: 'cert-mict-seta-2018',
-        // YOUR EDITS INCLUDED BELOW:
         title: 'National Certificate: Information Technology (Systems Support)',
         issuer: 'Department of Higher Education and Training (DHET)',
         category: 'tertiary',
@@ -22,7 +24,6 @@ const certificatesData = [
     },
     {
         id: 'cert-ctu-transcript-2018',
-        // YOUR EDITS INCLUDED BELOW:
         title: 'Academic Transcript - IT System Support (MCSA)',
         issuer: 'CTU Training Solutions',
         category: 'tertiary',
@@ -32,23 +33,31 @@ const certificatesData = [
         thumbnail: 'ctu-logo.png',
         certImage: 'certificates/Academic-Transcript.jpg',
         isLogo: true,
-        // YOUR UPDATED TAGS:
         tags: ['Academic Transcript', 'Microsoft Windows Server 2012 R2', 'Microsoft Windows 10', 'Computer Architecture', 'Network Architecture'],
         description: 'Comprehensive academic transcript covering Server Network Operating Systems (96%), Windows 10 (91%), Computer Architecture (90%), and Network Architecture (88%).'
     },
+
+    /* ==========================================================================
+       2. MICROSOFT CERTIFICATIONS (Official Microsoft Certification Only)
+       ========================================================================== */
     {
-        id: 'cert-md102-udemy-2025',
-        title: 'MD-102 Endpoint Administrator Associate Course with SIMS',
+        id: 'cert-azure-fundamentals-2021',
+        title: 'Microsoft Certified: Azure Fundamentals',
         issuer: 'Microsoft',
         category: 'microsoft',
         date: '15 November 2021',
-        credentialId: 'UC-f121cfeb-df67-43c7-9bb3-ef0f07fd6b3e',
+        credentialId: 'I030-2024',
         level: 'Fundamentals',
         thumbnail: 'https://rabbitlogo.com/wp-content/uploads/2026/01/microsoft-1.jpg',
         certImage: 'certificates/Azure Certification_page-0001.jpg',
-        tags: ['AZ-900', 'Azure Cloud', 'Cloud Concepts', 'Azure Architecture & Services', 'Azure Management & Governance', 'Microsoft Certified' ],
-        description: 'Demonstrate foundational knowledge of cloud concepts, core Azure services, plus Azure management and governance features and tools.'
+        isLogo: true,
+        tags: ['AZ-900', 'Azure Cloud', 'Cloud Concepts', 'Azure Architecture & Services', 'Azure Management & Governance', 'Microsoft Certified'],
+        description: 'Demonstrates foundational knowledge of cloud concepts, core Azure services, plus Azure management and governance features and tools certified directly by Microsoft.'
     },
+
+    /* ==========================================================================
+       3. AWS CERTIFICATIONS (Placeholder track)
+       ========================================================================== */
     {
         id: 'cert-aws-cloud-practitioner',
         title: 'AWS Certified Cloud Practitioner Track',
@@ -62,6 +71,10 @@ const certificatesData = [
         tags: ['AWS', 'Cloud Architecture', 'S3', 'EC2', 'IAM'],
         description: 'Comprehensive knowledge of AWS core services, security management, pricing models, and cloud architectural best practices.'
     },
+
+    /* ==========================================================================
+       4. PYTHON DEVELOPMENT (Placeholder track)
+       ========================================================================== */
     {
         id: 'cert-python-automation',
         title: 'Python for IT Administration & System Automation',
@@ -75,31 +88,51 @@ const certificatesData = [
         tags: ['Python 3', 'Automation', 'Scripting', 'OS Module', 'REST APIs'],
         description: 'Development of operational scripts for system diagnostics, file system manipulation, automated backups, and log parsing.'
     },
+
+    /* ==========================================================================
+       5. UDEMY TECHNICAL BOOTCAMPS & COURSES
+       ========================================================================== */
     {
-        id: 'cert-network-sysadmin-udemy',
-        title: 'Network and Systems Administrator Technical Training',
-        issuer: 'Jobskillshare Community / Udemy',
-        category: 'udemy',
-        date: '23 September 2025',
-        credentialId: 'UC-2713f347-b8c2-41ed-8f9b-1191a6476811',
-        level: '49.5 Total Hours',
-        thumbnail: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=600&auto=format&fit=crop',
-        certImage: 'certificates/Network-and-Systems-Administrator-Technical-Training.jpg',
-        tags: ['SysAdmin', 'Active Directory', 'Networking', 'Group Policy', 'DHCP/DNS'],
-        description: 'Intensive 49.5-hour hands-on technical training covering enterprise Active Directory configuration, Domain Controllers, DNS, and ticketing systems.'
-    },
-    {
-        id: 'cert-it-support-bootcamp-udemy',
+        id: 'cert-udemy-it-support-bootcamp',
         title: 'IT Support Technical Skills Bootcamp',
         issuer: 'Jobskillshare Community / Udemy',
         category: 'udemy',
         date: '30 October 2024',
         credentialId: 'UC-e2a1bae4-32f1-4346-879e-7b5e2c8c3b8f',
         level: '39.5 Total Hours',
-        thumbnail: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=600&auto=format&fit=crop',
+        thumbnail: 'https://www.vectorlogo.zone/logos/udemy/udemy-ar21.svg',
         certImage: 'certificates/IT-Support-Technical-Skills-Bootcamp.jpg',
-        tags: ['IT Support', 'Hardware Troubleshooting', 'Ticketing', 'Remote Desktop'],
-        description: '39.5 hours of practical lab exercises covering tier-1 and tier-2 IT support, hardware diagnostics, and enterprise software deployment.'
+        isLogo: true,
+        tags: ['IT Support', 'Tier 1/2 Diagnostics', 'Hardware Troubleshooting', 'Ticketing Systems', 'Remote Desktop'],
+        description: 'Intensive 39.5-hour bootcamp covering tier-1 and tier-2 IT support troubleshooting, active directory user management, remote desktop tools, and enterprise ticketing systems.'
+    },
+    {
+        id: 'cert-udemy-md102',
+        title: 'MD-102 Endpoint Administrator Associate course with SIMS!',
+        issuer: 'John Christopher / Udemy',
+        category: 'udemy',
+        date: '05 October 2025',
+        credentialId: 'UC-f121cfeb-df67-43c7-9bb3-ef0f07fd6b3e',
+        level: '11.5 Total Hours',
+        thumbnail: 'https://www.vectorlogo.zone/logos/udemy/udemy-ar21.svg',
+        certImage: 'certificates/MD-102-Endpoint-Administrator-Associate.jpg',
+        isLogo: true,
+        tags: ['MD-102', 'Endpoint Admin', 'Microsoft Intune', 'Autopilot Deployment', 'SIMS Labs'],
+        description: 'Practical 11.5-hour hands-on course focusing on Microsoft Intune endpoint management, device compliance policies, Windows Autopilot deployment, and SIMS lab simulations.'
+    },
+    {
+        id: 'cert-udemy-sysadmin',
+        title: 'Network and Systems Administrator Technical Training',
+        issuer: 'Jobskillshare Community / Udemy',
+        category: 'udemy',
+        date: '23 September 2025',
+        credentialId: 'UC-2713f347-b8c2-41ed-8f9b-1191a6476811',
+        level: '49.5 Total Hours',
+        thumbnail: 'https://www.vectorlogo.zone/logos/udemy/udemy-ar21.svg',
+        certImage: 'certificates/Network-and-Systems-Administrator-Technical-Training.jpg',
+        isLogo: true,
+        tags: ['SysAdmin', 'Active Directory', 'Networking Infrastructure', 'Group Policy (GPO)', 'DHCP/DNS'],
+        description: 'Comprehensive 49.5-hour system administration bootcamp covering Active Directory Domain Controllers, Group Policy Object management, DNS/DHCP network services, and server infrastructure support.'
     }
 ];
 
@@ -201,7 +234,6 @@ function createCertificateCard(item) {
                 ${tagsHTML}
             </div>
             <div class="card-footer">
-                <!-- UPDATED BUTTON TO match primary blue style -->
                 <button class="btn btn-primary btn-card-action view-details-btn" type="button" onclick="openCertModal('${item.id}')">
                     View Credential
                 </button>
