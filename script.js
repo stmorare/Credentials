@@ -101,7 +101,6 @@ const certificatesData = [
         level: '39.5 Total Hours',
         thumbnail: 'https://logos-world.net/wp-content/uploads/2021/11/Udemy-Symbol.png',
         certImage: 'certificates/IT-Support-Technical-Skills-Bootcamp.jpg',
-        isLogo: true,
         tags: ['IT Support', 'Tier 1/2 Diagnostics', 'Hardware Troubleshooting', 'Ticketing Systems', 'Remote Desktop'],
         description: 'Intensive 39.5-hour bootcamp covering tier-1 and tier-2 IT support troubleshooting, active directory user management, remote desktop tools, and enterprise ticketing systems.'
     },
@@ -115,7 +114,6 @@ const certificatesData = [
         level: '49.5 Total Hours',
         thumbnail: 'https://logos-world.net/wp-content/uploads/2021/11/Udemy-Symbol.png',
         certImage: 'certificates/Network-and-Systems-Administrator-Technical-Training.jpg',
-        isLogo: true,
         tags: ['SysAdmin', 'Active Directory', 'Networking Infrastructure', 'Group Policy (GPO)', 'DHCP/DNS'],
         description: 'Comprehensive 49.5-hour system administration bootcamp covering Active Directory Domain Controllers, Group Policy Object management, DNS/DHCP network services, and server infrastructure support.'
     },
@@ -129,7 +127,6 @@ const certificatesData = [
         level: '11.5 Total Hours',
         thumbnail: 'https://logos-world.net/wp-content/uploads/2021/11/Udemy-Symbol.png',
         certImage: 'certificates/MD-102-Endpoint-Administrator-Associate.jpg',
-        isLogo: true,
         tags: ['MD-102', 'Endpoint Admin', 'Microsoft Intune', 'Autopilot Deployment', 'SIMS Labs'],
         description: 'Practical 11.5-hour hands-on course focusing on Microsoft Intune endpoint management, device compliance policies, Windows Autopilot deployment, and SIMS lab simulations.'
     },
