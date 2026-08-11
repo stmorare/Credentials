@@ -59,13 +59,13 @@ const certificatesData = [
        ========================================================================== */
     {
         id: 'cert-aws-cloud-practitioner',
-        title: 'AWS Certified Cloud Practitioner Track',
+        title: 'AWS Cloud Quest',
         issuer: 'Amazon Web Services',
         category: 'aws',
         date: '2024',
         credentialId: 'AWS-CCP-89012',
         level: 'Cloud Fundamentals',
-        thumbnail: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600&auto=format&fit=crop',
+        thumbnail: 'https://miro.medium.com/v2/1*bH7r8B1_4D93Vt37ZZ-tcg@2x.jpeg',
         certImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop',
         tags: ['AWS', 'Cloud Architecture', 'S3', 'EC2', 'IAM'],
         description: 'Comprehensive knowledge of AWS core services, security management, pricing models, and cloud architectural best practices.'
