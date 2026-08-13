@@ -129,7 +129,7 @@ const certificatesData = [
         certImage: 'certificates/MD-102-Endpoint-Administrator-Associate.jpg',
         tags: ['MD-102', 'Endpoint Admin', 'Microsoft Intune', 'Autopilot Deployment', 'SIMS Labs'],
         description: 'Practical 11.5-hour hands-on course focusing on Microsoft Intune endpoint management, device compliance policies, Windows Autopilot deployment, and SIMS lab simulations.'
-    },
+    }
 ];
 
 const DOM = {
@@ -254,7 +254,45 @@ function initTheme() {
 }
 
 /**
- * FIXED TOP NAVIGATION: Synchronizes Filter Pills & Smooth Scrolls
+ * UNIFIED TWO-WAY SYNCHRONIZER: Syncs Top Navbar Links and Sub-Menu Filter Pills
+ */
+function syncActiveCategory(category) {
+    if (!category) return;
+
+    // 1. Sync Sub-Menu Filter Pills
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        const btnCat = btn.getAttribute('data-category');
+        if (btnCat === category) {
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+        } else {
+            btn.classList.remove('active');
+            btn.setAttribute('aria-selected', 'false');
+        }
+    });
+
+    // 2. Sync Top Header Navigation Links
+    DOM.navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === `#${category}`) {
+            link.classList.add('active');
+        } else if (category !== 'all' && ['tertiary', 'microsoft', 'aws', 'python', 'udemy'].includes(category)) {
+            if (href && href.startsWith('#')) {
+                const id = href.substring(1);
+                if (['tertiary', 'microsoft', 'aws', 'python', 'udemy'].includes(id)) {
+                    if (id === category) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                }
+            }
+        }
+    });
+}
+
+/**
+ * TOP NAVIGATION CLICK HANDLER
  */
 function setupNavigation() {
     if (DOM.hamburgerBtn) {
@@ -279,23 +317,17 @@ function setupNavigation() {
                 if (targetSection) {
                     e.preventDefault();
 
-                    // 1. Sync corresponding filter pill button
-                    const matchingPill = document.querySelector(`.filter-btn[data-category="${targetId}"]`);
-                    if (matchingPill) {
-                        document.querySelectorAll('.filter-btn').forEach(btn => {
-                            btn.classList.remove('active');
-                            btn.setAttribute('aria-selected', 'false');
-                        });
-                        matchingPill.classList.add('active');
-                        matchingPill.setAttribute('aria-selected', 'true');
+                    // Instantly sync active state on BOTH Top Navbar & Filter Pills
+                    if (['tertiary', 'microsoft', 'aws', 'python', 'udemy'].includes(targetId)) {
+                        syncActiveCategory(targetId);
+                        if (targetSection.style.display === 'none') {
+                            filterCertificates('', targetId);
+                        }
+                    } else {
+                        DOM.navLinks.forEach(l => l.classList.remove('active'));
+                        link.classList.add('active');
                     }
 
-                    // 2. Unhide target section if hidden by filter
-                    if (targetSection.style.display === 'none') {
-                        filterCertificates('', targetId);
-                    }
-
-                    // 3. Smooth scroll with sticky nav & filter bar offset compensation
                     setTimeout(() => {
                         const navHeight = document.getElementById('navbar')?.offsetHeight || 72;
                         const filterHeight = document.querySelector('.filter-section')?.offsetHeight || 80;
@@ -313,6 +345,9 @@ function setupNavigation() {
     });
 }
 
+/**
+ * SCROLLSPY EFFECT: Keeps Top Navbar & Filter Pills 100% synced on scroll
+ */
 function setupScrollEffects() {
     window.addEventListener('scroll', () => {
         const scrollTop = window.scrollY;
@@ -331,21 +366,16 @@ function setupScrollEffects() {
             }
         }
 
-        const sections = document.querySelectorAll('section[id]');
-        sections.forEach(section => {
-            if (section.style.display === 'none') return;
+        const categorySections = ['tertiary', 'microsoft', 'aws', 'python', 'udemy'];
+        categorySections.forEach(id => {
+            const section = document.getElementById(id);
+            if (!section || section.style.display === 'none') return;
 
-            const sectionTop = section.offsetTop - 150;
+            const sectionTop = section.offsetTop - 180;
             const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
 
             if (scrollTop >= sectionTop && scrollTop < sectionTop + sectionHeight) {
-                DOM.navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active');
-                    }
-                });
+                syncActiveCategory(id);
             }
         });
     });
@@ -358,7 +388,7 @@ function setupScrollEffects() {
 }
 
 /**
- * FIXED SUB-MENU FILTER PILLS: Syncs Top Navbar & Smooth Scrolls
+ * SUB-MENU FILTER PILLS CLICK HANDLER
  */
 function setupFiltering() {
     if (DOM.certSearch) {
@@ -374,28 +404,13 @@ function setupFiltering() {
                 const category = e.target.getAttribute('data-category');
                 const searchQuery = DOM.certSearch ? DOM.certSearch.value.toLowerCase().trim() : '';
 
-                // 1. Activate clicked filter pill
-                document.querySelectorAll('.filter-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                    btn.setAttribute('aria-selected', 'false');
-                });
-                e.target.classList.add('active');
-                e.target.setAttribute('aria-selected', 'true');
+                // Two-Way Sync (Highlights BOTH Filter Pill and Top Navbar)
+                syncActiveCategory(category);
 
-                // 2. Filter sections/cards
+                // Perform filtering
                 filterCertificates(searchQuery, category);
 
-                // 3. Sync Top Header Navigation Active Link
-                DOM.navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${category}`) {
-                        link.classList.add('active');
-                    } else if (category === 'all' && link.getAttribute('href') === '#home') {
-                        link.classList.add('active');
-                    }
-                });
-
-                // 4. Smooth Scroll to Target Section (or Credentials Wrapper for 'all')
+                // Smooth Scroll to Target Section
                 const targetId = category === 'all' ? 'credentialsWrapper' : category;
                 const targetElement = document.getElementById(targetId);
 
