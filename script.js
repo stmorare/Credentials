@@ -47,7 +47,7 @@ const certificatesData = [
         category: 'microsoft',
         date: '15 November 2021',
         credentialId: 'I030-2024',
-        level: 'Fundamentals',
+        level: 'Cloud Fundamentals',
         thumbnail: 'https://rabbitlogo.com/wp-content/uploads/2026/01/microsoft-1.jpg',
         certImage: 'certificates/Azure Certification_page-0001.jpg',
         tags: ['AZ-900', 'Azure Cloud', 'Cloud Concepts', 'Azure Architecture & Services', 'Azure Management & Governance', 'Microsoft Certified'],
@@ -59,13 +59,13 @@ const certificatesData = [
        ========================================================================== */
     {
         id: 'cert-aws-cloud-practitioner',
-        title: 'AWS Certified Cloud Practitioner Track',
+        title: 'AWS Cloud Quest',
         issuer: 'Amazon Web Services',
         category: 'aws',
-        date: '2024',
-        credentialId: 'AWS-CCP-89012',
+        date: 'Pending',
+        credentialId: 'Pending',
         level: 'Cloud Fundamentals',
-        thumbnail: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600&auto=format&fit=crop',
+        thumbnail: 'https://miro.medium.com/v2/1*bH7r8B1_4D93Vt37ZZ-tcg@2x.jpeg',
         certImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop',
         tags: ['AWS', 'Cloud Architecture', 'S3', 'EC2', 'IAM'],
         description: 'Comprehensive knowledge of AWS core services, security management, pricing models, and cloud architectural best practices.'
@@ -76,13 +76,13 @@ const certificatesData = [
        ========================================================================== */
     {
         id: 'cert-python-automation',
-        title: 'Python for IT Administration & System Automation',
-        issuer: 'Python Institute / Professional Track',
+        title: 'Python Essentials 1',
+        issuer: 'Python Institute',
         category: 'python',
-        date: '2024',
-        credentialId: 'PY-AUTO-3412',
-        level: 'Intermediate Scripting',
-        thumbnail: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop',
+        date: 'Pending',
+        credentialId: 'Pending',
+        level: 'Beginner',
+        thumbnail: 'https://i.pinimg.com/736x/6a/fb/f4/6afbf45910b9b4c344737f76043d2cbc.jpg',
         certImage: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1000&auto=format&fit=crop',
         tags: ['Python 3', 'Automation', 'Scripting', 'OS Module', 'REST APIs'],
         description: 'Development of operational scripts for system diagnostics, file system manipulation, automated backups, and log parsing.'
@@ -94,45 +94,42 @@ const certificatesData = [
     {
         id: 'cert-udemy-it-support-bootcamp',
         title: 'IT Support Technical Skills Bootcamp',
-        issuer: 'Jobskillshare Community / Udemy',
+        issuer: 'Jobskillshare Community',
         category: 'udemy',
         date: '30 October 2024',
         credentialId: 'UC-e2a1bae4-32f1-4346-879e-7b5e2c8c3b8f',
         level: '39.5 Total Hours',
-        thumbnail: 'https://www.vectorlogo.zone/logos/udemy/udemy-ar21.svg',
+        thumbnail: 'https://logos-world.net/wp-content/uploads/2021/11/Udemy-Symbol.png',
         certImage: 'certificates/IT-Support-Technical-Skills-Bootcamp.jpg',
-        isLogo: true,
         tags: ['IT Support', 'Tier 1/2 Diagnostics', 'Hardware Troubleshooting', 'Ticketing Systems', 'Remote Desktop'],
         description: 'Intensive 39.5-hour bootcamp covering tier-1 and tier-2 IT support troubleshooting, active directory user management, remote desktop tools, and enterprise ticketing systems.'
     },
     {
-        id: 'cert-udemy-md102',
-        title: 'MD-102 Endpoint Administrator Associate course with SIMS!',
-        issuer: 'John Christopher / Udemy',
-        category: 'udemy',
-        date: '05 October 2025',
-        credentialId: 'UC-f121cfeb-df67-43c7-9bb3-ef0f07fd6b3e',
-        level: '11.5 Total Hours',
-        thumbnail: 'https://www.vectorlogo.zone/logos/udemy/udemy-ar21.svg',
-        certImage: 'certificates/MD-102-Endpoint-Administrator-Associate.jpg',
-        isLogo: true,
-        tags: ['MD-102', 'Endpoint Admin', 'Microsoft Intune', 'Autopilot Deployment', 'SIMS Labs'],
-        description: 'Practical 11.5-hour hands-on course focusing on Microsoft Intune endpoint management, device compliance policies, Windows Autopilot deployment, and SIMS lab simulations.'
-    },
-    {
         id: 'cert-udemy-sysadmin',
         title: 'Network and Systems Administrator Technical Training',
-        issuer: 'Jobskillshare Community / Udemy',
+        issuer: 'Jobskillshare Community',
         category: 'udemy',
         date: '23 September 2025',
         credentialId: 'UC-2713f347-b8c2-41ed-8f9b-1191a6476811',
         level: '49.5 Total Hours',
-        thumbnail: 'https://www.vectorlogo.zone/logos/udemy/udemy-ar21.svg',
+        thumbnail: 'https://logos-world.net/wp-content/uploads/2021/11/Udemy-Symbol.png',
         certImage: 'certificates/Network-and-Systems-Administrator-Technical-Training.jpg',
-        isLogo: true,
         tags: ['SysAdmin', 'Active Directory', 'Networking Infrastructure', 'Group Policy (GPO)', 'DHCP/DNS'],
         description: 'Comprehensive 49.5-hour system administration bootcamp covering Active Directory Domain Controllers, Group Policy Object management, DNS/DHCP network services, and server infrastructure support.'
-    }
+    },
+    {
+        id: 'cert-udemy-md102',
+        title: 'MD-102 Endpoint Administrator Associate course with SIMS!',
+        issuer: 'John Christopher',
+        category: 'udemy',
+        date: '05 October 2025',
+        credentialId: 'UC-f121cfeb-df67-43c7-9bb3-ef0f07fd6b3e',
+        level: '11.5 Total Hours',
+        thumbnail: 'https://logos-world.net/wp-content/uploads/2021/11/Udemy-Symbol.png',
+        certImage: 'certificates/MD-102-Endpoint-Administrator-Associate.jpg',
+        tags: ['MD-102', 'Endpoint Admin', 'Microsoft Intune', 'Autopilot Deployment', 'SIMS Labs'],
+        description: 'Practical 11.5-hour hands-on course focusing on Microsoft Intune endpoint management, device compliance policies, Windows Autopilot deployment, and SIMS lab simulations.'
+    },
 ];
 
 const DOM = {
@@ -257,45 +254,7 @@ function initTheme() {
 }
 
 /**
- * UNIFIED TWO-WAY SYNCHRONIZER: Syncs Top Navbar Links and Sub-Menu Filter Pills 
- */
-function syncActiveCategory(category) {
-    // 1. Sync Sub-Menu Filter Pills
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        const btnCat = btn.getAttribute('data-category');
-        if (btnCat === category) {
-            btn.classList.add('active');
-            btn.setAttribute('aria-selected', 'true');
-        } else {
-            btn.classList.remove('active');
-            btn.setAttribute('aria-selected', 'false');
-        }
-    });
-
-    // 2. Sync Top Header Navigation Links
-    DOM.navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href === `#${category}`) {
-            link.classList.add('active');
-        } else if (category === 'all') {
-            // When all credentials active, active link managed by section scroll position
-        } else if (['tertiary', 'microsoft', 'aws', 'python', 'udemy'].includes(category)) {
-            if (href && href.startsWith('#')) {
-                const id = href.substring(1);
-                if (['tertiary', 'microsoft', 'aws', 'python', 'udemy'].includes(id)) {
-                    if (id === category) {
-                        link.classList.add('active');
-                    } else {
-                        link.classList.remove('active');
-                    }
-                }
-            }
-        }
-    });
-}
-
-/**
- * TOP NAVIGATION CLICK HANDLER
+ * FIXED TOP NAVIGATION: Synchronizes Filter Pills & Smooth Scrolls
  */
 function setupNavigation() {
     if (DOM.hamburgerBtn) {
@@ -320,18 +279,23 @@ function setupNavigation() {
                 if (targetSection) {
                     e.preventDefault();
 
-                    // 1. Instantly sync Category Pills in Filter Bar
-                    if (['tertiary', 'microsoft', 'aws', 'python', 'udemy'].includes(targetId)) {
-                        syncActiveCategory(targetId);
-                        if (targetSection.style.display === 'none') {
-                            filterCertificates('', targetId);
-                        }
-                    } else {
-                        DOM.navLinks.forEach(l => l.classList.remove('active'));
-                        link.classList.add('active');
+                    // 1. Sync corresponding filter pill button
+                    const matchingPill = document.querySelector(`.filter-btn[data-category="${targetId}"]`);
+                    if (matchingPill) {
+                        document.querySelectorAll('.filter-btn').forEach(btn => {
+                            btn.classList.remove('active');
+                            btn.setAttribute('aria-selected', 'false');
+                        });
+                        matchingPill.classList.add('active');
+                        matchingPill.setAttribute('aria-selected', 'true');
                     }
 
-                    // 2. Smooth scroll with sticky navbar & filter bar offset
+                    // 2. Unhide target section if hidden by filter
+                    if (targetSection.style.display === 'none') {
+                        filterCertificates('', targetId);
+                    }
+
+                    // 3. Smooth scroll with sticky nav & filter bar offset compensation
                     setTimeout(() => {
                         const navHeight = document.getElementById('navbar')?.offsetHeight || 72;
                         const filterHeight = document.querySelector('.filter-section')?.offsetHeight || 80;
@@ -349,9 +313,6 @@ function setupNavigation() {
     });
 }
 
-/**
- * SCROLLSPY EFFECT: Keeps both Top Navbar & Filter Pills 100% synced on scroll
- */
 function setupScrollEffects() {
     window.addEventListener('scroll', () => {
         const scrollTop = window.scrollY;
@@ -370,16 +331,21 @@ function setupScrollEffects() {
             }
         }
 
-        const categorySections = ['tertiary', 'microsoft', 'aws', 'python', 'udemy'];
-        categorySections.forEach(id => {
-            const section = document.getElementById(id);
-            if (!section || section.style.display === 'none') return;
+        const sections = document.querySelectorAll('section[id]');
+        sections.forEach(section => {
+            if (section.style.display === 'none') return;
 
-            const sectionTop = section.offsetTop - 180;
+            const sectionTop = section.offsetTop - 150;
             const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
 
             if (scrollTop >= sectionTop && scrollTop < sectionTop + sectionHeight) {
-                syncActiveCategory(id);
+                DOM.navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
             }
         });
     });
@@ -392,7 +358,7 @@ function setupScrollEffects() {
 }
 
 /**
- * SUB-MENU FILTER PILLS CLICK HANDLER
+ * FIXED SUB-MENU FILTER PILLS: Syncs Top Navbar & Smooth Scrolls
  */
 function setupFiltering() {
     if (DOM.certSearch) {
@@ -408,13 +374,28 @@ function setupFiltering() {
                 const category = e.target.getAttribute('data-category');
                 const searchQuery = DOM.certSearch ? DOM.certSearch.value.toLowerCase().trim() : '';
 
-                // 1. Two-Way Sync (Highlights BOTH Filter Pill and Top Navbar)
-                syncActiveCategory(category);
+                // 1. Activate clicked filter pill
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-selected', 'false');
+                });
+                e.target.classList.add('active');
+                e.target.setAttribute('aria-selected', 'true');
 
-                // 2. Perform filtering (Functionality unchanged)
+                // 2. Filter sections/cards
                 filterCertificates(searchQuery, category);
 
-                // 3. Smooth Scroll to Target Section
+                // 3. Sync Top Header Navigation Active Link
+                DOM.navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${category}`) {
+                        link.classList.add('active');
+                    } else if (category === 'all' && link.getAttribute('href') === '#home') {
+                        link.classList.add('active');
+                    }
+                });
+
+                // 4. Smooth Scroll to Target Section (or Credentials Wrapper for 'all')
                 const targetId = category === 'all' ? 'credentialsWrapper' : category;
                 const targetElement = document.getElementById(targetId);
 
