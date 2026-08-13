@@ -254,12 +254,11 @@ function initTheme() {
 }
 
 /**
- * UNIFIED TWO-WAY SYNCHRONIZER: Syncs Top Navbar Links and Sub-Menu Filter Pills
+ * UNIFIED TWO-WAY SYNCHRONIZER
  */
 function syncActiveCategory(category) {
     if (!category) return;
 
-    // 1. Sync Sub-Menu Filter Pills
     document.querySelectorAll('.filter-btn').forEach(btn => {
         const btnCat = btn.getAttribute('data-category');
         if (btnCat === category) {
@@ -271,7 +270,6 @@ function syncActiveCategory(category) {
         }
     });
 
-    // 2. Sync Top Header Navigation Links
     DOM.navLinks.forEach(link => {
         const href = link.getAttribute('href');
         if (href === `#${category}`) {
@@ -291,9 +289,6 @@ function syncActiveCategory(category) {
     });
 }
 
-/**
- * TOP NAVIGATION CLICK HANDLER
- */
 function setupNavigation() {
     if (DOM.hamburgerBtn) {
         DOM.hamburgerBtn.addEventListener('click', () => {
@@ -317,7 +312,6 @@ function setupNavigation() {
                 if (targetSection) {
                     e.preventDefault();
 
-                    // Instantly sync active state on BOTH Top Navbar & Filter Pills
                     if (['tertiary', 'microsoft', 'aws', 'python', 'udemy'].includes(targetId)) {
                         syncActiveCategory(targetId);
                         if (targetSection.style.display === 'none') {
@@ -345,9 +339,6 @@ function setupNavigation() {
     });
 }
 
-/**
- * SCROLLSPY EFFECT: Keeps Top Navbar & Filter Pills 100% synced on scroll
- */
 function setupScrollEffects() {
     window.addEventListener('scroll', () => {
         const scrollTop = window.scrollY;
@@ -387,9 +378,6 @@ function setupScrollEffects() {
     }
 }
 
-/**
- * SUB-MENU FILTER PILLS CLICK HANDLER
- */
 function setupFiltering() {
     if (DOM.certSearch) {
         DOM.certSearch.addEventListener('input', (e) => {
@@ -404,13 +392,9 @@ function setupFiltering() {
                 const category = e.target.getAttribute('data-category');
                 const searchQuery = DOM.certSearch ? DOM.certSearch.value.toLowerCase().trim() : '';
 
-                // Two-Way Sync (Highlights BOTH Filter Pill and Top Navbar)
                 syncActiveCategory(category);
-
-                // Perform filtering
                 filterCertificates(searchQuery, category);
 
-                // Smooth Scroll to Target Section
                 const targetId = category === 'all' ? 'credentialsWrapper' : category;
                 const targetElement = document.getElementById(targetId);
 
@@ -533,6 +517,53 @@ function openCertModal(id) {
     DOM.modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
 }
+
+/**
+ * OPENS EXECUTIVE RECOMMENDATION LETTER IN LIGHTBOX MODAL
+ */
+window.openTestimonialModal = function() {
+    if (!DOM.modalBody) return;
+
+    const docImage = 'certificates/DSV-Recommendation-Letter.jpg';
+
+    DOM.modalBody.innerHTML = `
+        <div class="modal-cert-viewer">
+            <img src="${docImage}" 
+                 alt="Jan Boedecker DSV Official Recommendation Letter" 
+                 class="modal-full-cert-img" 
+                 onerror="handleImageFallback(this)">
+        </div>
+        <div class="modal-details">
+            <span class="card-issuer">DSV Air & Sea Inc.</span>
+            <h3 id="modalTitle">Executive Recommendation Letter — Jan Boedecker</h3>
+            <div class="modal-meta-bar">
+                <span><strong>Date Issued:</strong> September 08, 2020</span>
+                <span><strong>Author:</strong> Jan Boedecker (Senior Director IT Americas)</span>
+            </div>
+            <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">
+                Official letter of recommendation written by Jan Boedecker (former General Manager IT Africa & Middle East, now Senior Director IT Americas at DSV Air & Sea) commending Simphiwe Tebogo Morare for technical versatility, extra-hour dedication, and reliability during high-stakes enterprise M&A integration activities.
+            </p>
+            <div class="card-tags" style="margin-bottom: 2rem;">
+                <span class="tag-pill">M&A IT Integration</span>
+                <span class="tag-pill">Technical Versatility</span>
+                <span class="tag-pill">Stakeholder Management</span>
+                <span class="tag-pill">Global Logistics IT</span>
+            </div>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="${docImage}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    Open Full Document
+                </a>
+                <button class="btn btn-secondary" onclick="closeCertModal()">
+                    Close View
+                </button>
+            </div>
+        </div>
+    `;
+
+    DOM.modal.classList.add('active');
+    DOM.modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+};
 
 function closeCertModal() {
     if (!DOM.modal) return;

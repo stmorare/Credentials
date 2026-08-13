@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css?v=2.0">
+    <link rel="stylesheet" href="style.css?v=2.1">
 </head>
 <body>
     <!-- Reading Progress Bar -->
@@ -35,7 +35,7 @@
                     <li><a href="#aws" class="nav-link">AWS</a></li>
                     <li><a href="#python" class="nav-link">Python</a></li>
                     <li><a href="#udemy" class="nav-link">Udemy</a></li>
-                    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                    <li><a href="#testimonials" class="nav-link">Testimonial</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
@@ -228,56 +228,52 @@
             </section>
         </div>
 
-        <!-- Testimonials Section -->
+        <!-- RESTRUCTURED TESTIMONIAL SECTION (Executive Spotlight) -->
         <section id="testimonials" class="testimonials-section">
             <div class="section-container">
                 <div class="section-header text-center">
-                    <span class="section-tag">Professional Feedback</span>
-                    <h2 class="section-title">Testimonials</h2>
+                    <span class="section-tag">Executive Endorsement</span>
+                    <h2 class="section-title">Testimonial</h2>
+                    <p class="section-description">Official recommendation from enterprise leadership during major M&A IT integration projects.</p>
                 </div>
 
-                <div class="testimonials-grid">
-                    <article class="testimonial-card">
-                        <div class="quote-icon" aria-hidden="true">“</div>
-                        <p class="testimonial-text">
-                            Simphiwe displayed exceptional analytical skills during the IT System Support MCSA programme at Auckland Park, maintaining an average score above 87% across all advanced server and networking modules.
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">RC</div>
-                            <div class="author-info">
-                                <h3 class="author-name">R. Chimbetete</h3>
-                                <p class="author-role">Academic Facilitator, CTU Training Solutions</p>
-                            </div>
+                <!-- Featured Testimonial Spotlight Card -->
+                <div class="featured-testimonial-wrapper">
+                    <div class="featured-testimonial-card">
+                        <div class="quote-icon-watermark" aria-hidden="true">“</div>
+                        
+                        <div class="testimonial-header-badge">
+                            <span class="badge-dot"></span> Executive Recommendation • DSV Air & Sea
                         </div>
-                    </article>
 
-                    <article class="testimonial-card">
-                        <div class="quote-icon" aria-hidden="true">“</div>
-                        <p class="testimonial-text">
-                            A highly dedicated IT Specialist who consistently prioritizes continuous learning. His hands-on proficiency in endpoint management and network infrastructure makes him an invaluable asset to enterprise IT operations.
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">CB</div>
-                            <div class="author-info">
-                                <h3 class="author-name">Cheryl Bronkhorst</h3>
-                                <p class="author-role">Campus Manager, CTU Training Solutions</p>
-                            </div>
-                        </div>
-                    </article>
+                        <blockquote class="featured-quote">
+                            “Simphiwe worked with me at DSV Air & Sea during the Integration activities of the merger. IT integrations as part of an M&A project require skills like technical versatility, reliability, user communication, and group collaboration. Simphiwe was part of this successful project from beginning to end—he impressed me with providing service and working the extra hours to satisfy stakeholders. His co-workers could always rely on him and his excellent communication skills.”
+                        </blockquote>
 
-                    <article class="testimonial-card">
-                        <div class="quote-icon" aria-hidden="true">“</div>
-                        <p class="testimonial-text">
-                            Simphiwe possesses an innate ability to resolve complex tier-2 and tier-3 support tickets efficiently. His systematic approach to troubleshooting systems and server infrastructures ensures minimal operational downtime.
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">IT</div>
-                            <div class="author-info">
-                                <h3 class="author-name">Senior IT Director</h3>
-                                <p class="author-role">Enterprise Infrastructure Team</p>
+                        <div class="testimonial-highlights">
+                            <span class="tag-pill">M&A IT Integration</span>
+                            <span class="tag-pill">Technical Versatility</span>
+                            <span class="tag-pill">Stakeholder Management</span>
+                            <span class="tag-pill">Global Logistics IT</span>
+                        </div>
+
+                        <div class="testimonial-author-block">
+                            <div class="author-avatar-large">JB</div>
+                            <div class="author-details">
+                                <h3 class="author-name">Jan Boedecker</h3>
+                                <p class="author-role">Senior Director IT Americas</p>
+                                <p class="author-company">DSV Air & Sea Inc. (Former General Manager IT, Africa & Middle East)</p>
+                                <span class="author-date">Issued: September 08, 2020</span>
                             </div>
                         </div>
-                    </article>
+
+                        <div class="testimonial-action">
+                            <button class="btn btn-primary" type="button" onclick="openTestimonialModal()">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                                View Official Recommendation Letter
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -389,6 +385,6 @@
     </div>
 
     <!-- Script File -->
-    <script src="script.js?v=2.0"></script>
+    <script src="script.js?v=2.1"></script>
 </body>
 </html>
