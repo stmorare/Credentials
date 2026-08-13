@@ -182,7 +182,7 @@ function renderAllCertificates(data) {
 }
 
 /**
- * Smart Fallback Function for Image Loading
+ * Smart Fallback Function for Image Loading (Handles multiple formats and folders)
  */
 window.handleImageFallback = function(img) {
     if (!img.dataset.tried) {
@@ -190,14 +190,20 @@ window.handleImageFallback = function(img) {
         const currentSrc = img.src;
         if (currentSrc.includes('certificates/')) {
             img.src = currentSrc.replace('certificates/', '');
-        } else if (currentSrc.endsWith('.png')) {
-            img.src = currentSrc.replace('.png', '.jfif');
-        } else if (currentSrc.endsWith('.jfif')) {
-            img.src = currentSrc.replace('.jfif', '.png');
         } else if (currentSrc.endsWith('.jpg')) {
             img.src = currentSrc.replace('.jpg', '.jpeg');
         } else if (currentSrc.endsWith('.jpeg')) {
-            img.src = currentSrc.replace('.jpeg', '.jpg');
+            img.src = currentSrc.replace('.jpeg', '.png');
+        } else if (currentSrc.endsWith('.png')) {
+            img.src = currentSrc.replace('.png', '.jfif');
+        }
+    } else if (img.dataset.tried === '1') {
+        img.dataset.tried = '2';
+        const currentSrc = img.src;
+        if (currentSrc.endsWith('.jpeg')) {
+            img.src = currentSrc.replace('.jpeg', '.png');
+        } else if (currentSrc.endsWith('.jpg')) {
+            img.src = currentSrc.replace('.jpg', '.png');
         }
     }
 };
@@ -477,6 +483,16 @@ function setupModalEvents() {
     });
 }
 
+/**
+ * HELPER: DYNAMICALLY OPENS WORKING IMAGE IN NEW TAB (PREVENTS 404)
+ */
+window.openWorkingDocInNewTab = function() {
+    const modalImg = document.querySelector('.modal-full-cert-img');
+    if (modalImg && modalImg.src) {
+        window.open(modalImg.src, '_blank');
+    }
+};
+
 function openCertModal(id) {
     const item = certificatesData.find(c => c.id === id);
     if (!item || !DOM.modalBody) return;
@@ -503,10 +519,10 @@ function openCertModal(id) {
                 ${tagsHTML}
             </div>
             <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                <a href="${docImage}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <button type="button" class="btn btn-primary" onclick="openWorkingDocInNewTab()">
                     Open Full Document
-                </a>
-                <button class="btn btn-secondary" onclick="closeCertModal()">
+                </button>
+                <button type="button" class="btn btn-secondary" onclick="closeCertModal()">
                     Close View
                 </button>
             </div>
@@ -550,10 +566,10 @@ window.openTestimonialModal = function() {
                 <span class="tag-pill">Global Logistics IT</span>
             </div>
             <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                <a href="${docImage}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <button type="button" class="btn btn-primary" onclick="openWorkingDocInNewTab()">
                     Open Full Document
-                </a>
-                <button class="btn btn-secondary" onclick="closeCertModal()">
+                </button>
+                <button type="button" class="btn btn-secondary" onclick="closeCertModal()">
                     Close View
                 </button>
             </div>
