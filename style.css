@@ -114,6 +114,7 @@ button, input {
     transition: width 0.1s ease-out;
 }
 
+/* NAVBAR & BRAND LOGO WITH SUB-ID */
 .navbar {
     position: sticky;
     top: 0;
@@ -139,16 +140,31 @@ button, input {
 .brand-logo {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.65rem;
     font-weight: 700;
     font-size: 1.1rem;
     letter-spacing: -0.01em;
+}
+
+.brand-text-group {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
 }
 
 .logo-symbol {
     color: var(--primary-blue);
     font-family: 'JetBrains Mono', monospace;
     font-weight: 800;
+    font-size: 1.25rem;
+}
+
+.logo-subtext {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
 }
 
 .nav-list {
@@ -631,9 +647,6 @@ button, input {
     border-radius: var(--radius-sm);
 }
 
-/* ==========================================================================
-   EXECUTIVE TESTIMONIAL SPOTLIGHT CARD STYLING
-   ========================================================================== */
 .testimonials-section {
     padding: 5rem 1.5rem;
     background-color: var(--bg-surface);
@@ -763,7 +776,6 @@ button, input {
     align-items: center;
 }
 
-/* Contact Section */
 .contact-section {
     padding: 5rem 1.5rem;
 }
@@ -861,6 +873,7 @@ button, input {
     margin-bottom: 1.75rem;
 }
 
+/* FOOTER STYLING WITH CENTERED COPYRIGHT */
 .footer {
     background-color: var(--bg-surface);
     border-top: 1px solid var(--border-color);
@@ -882,10 +895,9 @@ button, input {
     border-bottom: 1px solid var(--border-color);
 }
 
-.footer-tagline {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-top: 0.25rem;
+.footer-brand {
+    display: flex;
+    align-items: center;
 }
 
 .footer-links {
@@ -908,12 +920,15 @@ button, input {
 .footer-bottom {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
+    justify-content: center;
     padding-top: 2rem;
     font-size: 0.85rem;
     color: var(--text-muted);
-    flex-wrap: wrap;
+    text-align: center;
+}
+
+.footer-copyright {
+    text-align: center;
 }
 
 .back-to-top {

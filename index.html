@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css?v=2.3">
+    <link rel="stylesheet" href="style.css?v=2.4">
 </head>
 <body>
     <!-- Reading Progress Bar -->
@@ -22,9 +22,13 @@
     <!-- Navigation Header -->
     <header class="navbar" id="navbar">
         <div class="nav-container">
+            <!-- BRAND LOGO WITH SUB-ID -->
             <a href="#home" class="brand-logo" aria-label="Simphiwe Tebogo Morare - Home">
                 <span class="logo-symbol">&lt;/&gt;</span>
-                <span class="logo-text">Simphiwe Tebogo Morare</span>
+                <div class="brand-text-group">
+                    <span class="logo-text">Simphiwe Tebogo Morare</span>
+                    <span class="logo-subtext">Information Technology</span>
+                </div>
             </a>
 
             <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
@@ -277,7 +281,7 @@
             </div>
         </section>
 
-        <!-- UPDATED CONTACT SECTION -->
+        <!-- CONTACT SECTION -->
         <section id="contact" class="contact-section">
             <div class="section-container">
                 <div class="contact-card">
@@ -332,14 +336,21 @@
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- FOOTER WITH MATCHING BRAND & CENTERED COPYRIGHT -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-top">
+                <!-- FOOTER BRAND MATCHING TOP NAVBAR -->
                 <div class="footer-brand">
-                    <span class="logo-text">Simphiwe Tebogo Morare</span>
-                    <p class="footer-tagline">Enterprise IT Support Specialist • Systems & Endpoint Specialist</p>
+                    <a href="#home" class="brand-logo" aria-label="Simphiwe Tebogo Morare - Home">
+                        <span class="logo-symbol">&lt;/&gt;</span>
+                        <div class="brand-text-group">
+                            <span class="logo-text">Simphiwe Tebogo Morare</span>
+                            <span class="logo-subtext">Information Technology</span>
+                        </div>
+                    </a>
                 </div>
+
                 <ul class="footer-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#tertiary">Tertiary</a></li>
@@ -347,12 +358,14 @@
                     <li><a href="#aws">AWS</a></li>
                     <li><a href="#python">Python</a></li>
                     <li><a href="#udemy">Udemy</a></li>
+                    <li><a href="#testimonials">Testimonial</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
+
+            <!-- CENTERED COPYRIGHT -->
             <div class="footer-bottom">
-                <p>&copy; <span id="currentYear"></span> Simphiwe Tebogo Morare. All rights reserved.</p>
-                <p class="footer-subtext">PortfolioPro Architecture • Built with Vanilla HTML, CSS & JavaScript</p>
+                <p class="footer-copyright">&copy; <span id="currentYear"></span> Simphiwe Tebogo Morare. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -371,6 +384,6 @@
     </div>
 
     <!-- Script File -->
-    <script src="script.js?v=2.3"></script>
+    <script src="script.js?v=2.4"></script>
 </body>
 </html>
