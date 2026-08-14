@@ -114,7 +114,6 @@ button, input {
     transition: width 0.1s ease-out;
 }
 
-/* NAVBAR & BRAND LOGO WITH SUB-ID */
 .navbar {
     position: sticky;
     top: 0;
@@ -873,7 +872,7 @@ button, input {
     margin-bottom: 1.75rem;
 }
 
-/* FOOTER STYLING WITH CENTERED COPYRIGHT */
+/* FOOTER STYLING - PERFECTLY CENTERED COPYRIGHT NOTICE */
 .footer {
     background-color: var(--bg-surface);
     border-top: 1px solid var(--border-color);
@@ -918,6 +917,7 @@ button, input {
 }
 
 .footer-bottom {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -928,7 +928,10 @@ button, input {
 }
 
 .footer-copyright {
+    width: 100%;
     text-align: center;
+    margin: 0 auto;
+    display: block;
 }
 
 .back-to-top {
